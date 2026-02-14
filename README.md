@@ -11,12 +11,12 @@ O sistema exibe informações detalhadas da skin, incluindo organização, cargo
 
 - Pesquisa de skin por ID
 -  Exibição de informações completas:
-   ID
-   Nome do modelo
-   Categoria
-   Organização
-   Cargo
-   Nome interno (modelsa - ``dff_name``)
+   -   ID
+   -   Nome do modelo
+   -   Categoria
+   -   Organização
+   -   Cargo
+   -   Nome interno (modelsa - ``dff_name``)
 - Carregamento automático da imagem da skin
 - Histórico das últimas pesquisas
 - Interface dinâmica
