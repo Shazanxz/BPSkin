@@ -142,7 +142,7 @@ local skins_db = {
     [84] = {modelo = "Homem com roupa azul / Elvis Azul", cat = "ORG", org_nome = "MAFIA MEXICANA", cargo = "Sublideres e Lider", modelsa = "vbmycl"},
     [64] = {modelo = "Mulher com roupa curta", cat = "ORG", org_nome = "MAFIA MEXICANA", cargo = "-", modelsa = "vfyshere"},
     -- MAFIA RUSSA
-    [77] = {modelo = "Mulher com chapeu grande rosa e desarrumada", cat = "ORG", org_nome = "MAFIA RUSSA", cargo = "-", modelsa = "swmotr1"},
+    [77] = {modelo = "Mulher com chapeu grande rosa e desarrumada", cat = "ORG", org_nome = "MAFIA RUSSA e EMPREGO LIXEIRO FEMININA", cargo = "-", modelsa = "swmotr1"},
     [206] = {modelo = "Homem com blusa verde", cat = "ORG", org_nome = "MAFIA RUSSA / MAYANS", cargo = "Sublideres e Lider", modelsa = "vwmycd"},
     -- TALIBAN
     [121] = {modelo = "Homem careca com blusa branca", cat = "ORG", org_nome = "TALIBAN", cargo = "Cargo 1, 3", modelsa = "da_nanh"},
@@ -183,7 +183,6 @@ local skins_db = {
     [40]    = {modelo = "Taxista - Feminina", cat = "EMPREGO", modelsa = "hfyri"},
     [263]   = {modelo = "Entregadora de produtos", cat = "EMPREGO", modelsa = "vwfywa2"},
     [260]   = {modelo = "Lixeiro", cat = "EMPREGO", modelsa = "bmycon"},
-    [77]    = {modelo = "Lixeira", cat = "EMPREGO", modelsa = "swmotr1"},
     [158]   = {modelo = "Fazendeiro", cat = "EMPREGO", modelsa = "cwmofr"},
     [68]    = {modelo = "Coveiro", cat = "EMPREGO", modelsa = "wmoprea"},
     [98]    = {modelo = "Carteiro", cat = "EMPREGO", modelsa = "wmyri"},
@@ -213,7 +212,6 @@ local skins_db = {
     [259]   = {modelo = "Espectador 2", cat = "LOJA DE ROUPAS", modelsa = "heck2"},
     [258]   = {modelo = "Espectador 1", cat = "LOJA DE ROUPAS", modelsa = "heck1"},
     [159]   = {modelo = "Caipira de Macacão", cat = "LOJA DE ROUPAS", modelsa = "cwmohb1"},
-    [160]    = {modelo = "Pedestre Afro-americano (Social)", cat = "LOJA DE ROUPAS", modelsa = "vbmycg"},
     [21]     = {modelo = "Pedestre Afro-americano (Casual)", cat = "LOJA DE ROUPAS", modelsa = "bmyst"},
     [7]      = {modelo = "Pedestre Casual", cat = "LOJA DE ROUPAS", modelsa = "bmyst"},
     [170]   = {modelo = "Pedestre Comum", cat = "LOJA DE ROUPAS", modelsa = "somyst"},
@@ -389,9 +387,18 @@ function imgui.OnDrawFrame()
             for i, item in ipairs(history) do
                 if imgui.Selectable(string.format("[%d] ID: %d | %s", i, item.id, item.modelo)) then
                     search_id.v = tostring(item.id)
-                    search_result = skins_db[item.id]
-                    search_result.id = item.id
-                    loadSkinImage(item.id)
+                    local data = skins_db[item.id]
+                            if data then
+                                search_result = {
+                                     id = item.id,
+                                                modelo = data.modelo,
+                                                cat = data.cat,
+                                                org_nome = data.org_nome,
+                                                cargo = data.cargo,
+                                                modelsa = data.modelsa
+                                                 }
+                                loadSkinImage(item.id)
+                    end
                     selected_tab = 1
                 end
             end
