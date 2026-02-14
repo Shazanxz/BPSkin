@@ -21,6 +21,9 @@ O sistema exibe informações detalhadas da skin, incluindo organização, cargo
 - Histórico das últimas pesquisas
 - Interface dinâmica
 
+## Imagem:
+[![sa-mp-042.png](https://i.postimg.cc/3rmH5NPz/sa-mp-042.png)](https://postimg.cc/YjrPQr2x)
+
 ---
 
 ## Comando:
