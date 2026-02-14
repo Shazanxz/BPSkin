@@ -16,7 +16,7 @@ local SHOX_GREEN  = imgui.ImVec4(0.00, 1.00, 0.50, 1.00)
 -- CORES DAS ORGANIZAÇÕES
 local CL_GOV      = imgui.ImVec4(0.35, 0.55, 0.95, 1.00) -- Azul (PM/Exército/BOPE)
 local CL_MED      = imgui.ImVec4(0.85, 0.85, 0.85, 1.00) -- Cinza (Médicos)
-local CL_GOV_VERD = imgui.ImVec4(0.00, 0.75, 0.45, 1.00) -- Verde Água (Governo/Prefeitura)
+local CL_GOV_VERD = imgui.ImVec4(0.00, 0.75, 0.45, 1.00) -- Verde Água (Governo)
 local CL_GANG_AZU = imgui.ImVec4(0.25, 0.45, 0.95, 1.00) -- Azul (Aztecas)
 local CL_GANG_PCC = imgui.ImVec4(0.60, 0.60, 0.60, 1.00) -- Cinza (PCC)
 local CL_GANG_GRO = imgui.ImVec4(0.00, 1.00, 0.00, 1.00) -- Verde (Groove)
@@ -40,9 +40,8 @@ local search_result = nil
 local history = {} 
 local skin_texture = nil 
 
---- 
+
 --- BANCO DE DADOS
----
 local skins_db = {
     -- ================================== ORGANIZAÇÕES (ORGs) ===============================
     -- GROOVE
@@ -115,7 +114,7 @@ local skins_db = {
     [299] = {modelo = "Homem de jaqueta/Niko belic", cat = "ORG", org_nome = "POLICIA CIVIL / AL-QAEDA", cargo = "Cargo 4", modelsa = "claude"},
     [186] = {modelo = "Homem com terno cinza aberto", cat = "ORG", org_nome = "POLICIA CIVIL / AL-QAEDA", cargo = "Lider", modelsa = "somyri"},
     [141] = {modelo = "Japonesa", cat = "ORG", org_nome = "POLICIA CIVIL / AL-QAEDA", cargo = "-", modelsa = "sofybu"},
-    -- COMANDO VERMELHO =======================================================================================================
+    -- COMANDO VERMELHO
     [142] = {modelo = "Homem com camisa hippie", cat = "ORG", org_nome = "COMANDO VERMELHO", cargo = "Cargo 2", modelsa = "swmyhp1"},
     [182] = {modelo = "Homem Punk", cat = "ORG", org_nome = "COMANDO VERMELHO", cargo = "Cargo 1", modelsa = "gormy"},
     [193] = {modelo = "Mulher com top vermelho", cat = "ORG", org_nome = "COMANDO VERMELHO", cargo = "-", modelsa = "wfypro"},
@@ -341,7 +340,7 @@ function imgui.OnDrawFrame()
         imgui.Spacing()
 
         if search_result == "erro" then
-            imgui.TextColored(imgui.ImVec4(1, 0, 0, 1), u8"ID não encontrado!")
+            imgui.TextColored(imgui.ImVec4(1, 0, 0, 1), u8"ID nao encontrado!")
         elseif type(search_result) == "table" then
             imgui.Columns(2, "res", false)
             imgui.SetColumnWidth(0, 320)
@@ -400,7 +399,6 @@ function imgui.OnDrawFrame()
             if imgui.Button(u8"Limpar Tudo", imgui.ImVec2(-1, 25)) then history = {} end
         end
 
-    --- ABA CRÉDITOS ---
     elseif selected_tab == 3 then
         imgui.TextColored(SHOX_PURPLE, u8"DESENVOLVEDOR PRINCIPAL:")
         imgui.BulletText("Shazanxz")
@@ -418,7 +416,7 @@ function imgui.OnDrawFrame()
         
         imgui.Spacing()
         imgui.SetCursorPosY(imgui.GetWindowHeight() - 40)
-        imgui.TextDisabled(u8"Script Name: BPSkin")
+        imgui.TextDisabled(u8"BPSkin - v1.0")
     end
 
     imgui.End()
@@ -430,6 +428,7 @@ function main()
     while not isSampAvailable() do wait(100) end
     clearSearch()
     sampRegisterChatCommand('skin', function() menu_open.v = not menu_open.v end)
+    sampAddChatMessage("{B03DFF}[BPSkin]{FFFFFF} Script carregado! Use o comando {B03DFF}/skin {FFFFFF}para abrir o menu.", -1)
     while true do
         wait(0)
         imgui.Process = menu_open.v
