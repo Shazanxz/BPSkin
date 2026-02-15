@@ -24,11 +24,14 @@ O sistema exibe informações detalhadas da skin, incluindo organização, cargo
 ## Imagem:
 [![sa-mp-042.png](https://i.postimg.cc/3rmH5NPz/sa-mp-042.png)](https://postimg.cc/YjrPQr2x)
 
+> INFO: APENAS SKINS DE EMPREGOS, ORGANIZAÇÕES E LOJA DE ROUPA DISPONIVEIS NO MOMENTO...
+> pretendemos no futuro expandir mais e mais skins
+
 ---
 
 ## Comando:
 ``/skin``
-Digite o comando no chat no jogo, que o menu ira aparecer na sua tela. 
+> Digite o comando no chat no jogo, que o menu ira aparecer na sua tela. 
 
 ---
 
