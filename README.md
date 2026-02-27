@@ -69,6 +69,7 @@ Deseja expandir o banco de dados do projeto com o suporte a mais skins? Clone o 
 ## Autores | Contribuintes
 
 - Shazanxz (Desenvolvedor)
+- May (Inspiração de seu projeto - SkinsShox.pdf)
 - Sanmy (Mapeação das Skins)
 - Rickw (Mapeação das Skins)
 - DanielSks (Mapeação das Skins)
